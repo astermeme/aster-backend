@@ -6,7 +6,19 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "cors": "^2.8.5"
-  }
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astermeme/aster-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/astermeme/aster-backend/issues"
+  },
+  "homepage": "https://github.com/astermeme/aster-backend#readme"
 }

@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 
 //  leaderboard
@@ -18,7 +20,19 @@ app.post("/leaderboard", (req, res) => {
   if (!name || typeof score !== "number") {
     return res.status(400).json({ error: "Invalid data" });
   }
-  leaderboard.push({ name, score });
+
+  // 
+  const existing = leaderboard.find(p => p.name === name);
+  if (existing) {
+    // 
+    existing.score = Math.max(existing.score, score);
+  } else {
+    leaderboard.push({ name, score });
+  }
+
+  // 
+  leaderboard.sort((a, b) => b.score - a.score);
+
   res.json({ success: true, leaderboard });
 });
 
